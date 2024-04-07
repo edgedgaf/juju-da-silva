@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Position Change</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4e7f3; /* light pink */
+    }
+    .button-container {
+        position: relative;
+        width: 800px; /* Adjusted to limit movement area */
+        height: 600px; /* Adjusted to limit movement area */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 25px; /* Bordas arredondadas */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        padding: 20px; /* Espaçamento interno */
+    }
+    .button {
+        width: 100px;
+        height: 50px;
+        background-color: #e91e63; /* pink */
+        color: #fff;
+        border: none;
+        border-radius: 25px; /* half of height */
+        cursor: pointer;
+        margin: 10px; /* Add some space between buttons */
+        position: absolute;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+    }
+    .button:hover {
+        background-color: #9c27b0; /* purple */
+    }
+    #yes-button {
+        left: calc(50% - 110px); /* Adjusted */
+        bottom: 10px; /* Adjusted */
+    }
+    #no-button {
+        left: calc(50% + 10px); /* Adjusted */
+        bottom: 10px; /* Adjusted */
+    }
+    img {
+        border-radius: 25px; /* Bordas arredondadas */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+</style>
+</head>
+<body>
+<div class="button-container">
+    <img src="imagens/fodasedasilva.jpg" alt="Imagem" style="width: 400px; height: auto;">
+    <button id="yes-button" class="button" onclick="redirectToYouTube()">Yes</button>
+    <button id="no-button" class="button">No</button>
+</div>
+
+<script>
+    document.getElementById('no-button').addEventListener('mousemove', function(e) {
+        var newX = Math.random() * 740; // 800 - 60 (button width)
+        var newY = Math.random() * 550; // 600 - 50 (button height)
+        this.style.left = newX + 'px';
+        this.style.top = newY + 'px';
+    });
+
+    function redirectToYouTube() {
+        window.location.href = 'https://www.youtube.com/watch?v=HZli8pArLSE';
+    }
+</script>
+
+</body>
+</html>
